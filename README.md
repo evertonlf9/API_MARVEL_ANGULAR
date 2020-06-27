@@ -34,7 +34,7 @@ O principal objetivo do desafio é o desenvolvimento de uma aplicação que exib
 A documentação da API utilizada para obter os dados está disponível em: [Marvel](https://developer.marvel.com/docs#!/public/getCreatorCollection_get_12).
 
 ### Demonstração
- - [Demo](https://api-marvel-react.herokuapp.com/)
+ - [Demo](https://api-marvel-angular.herokuapp.com/)
 
 ## Informações Iniciais
 Para realizar as passos a seguir, será necessário que tenha instalado em seu computador o **git** e o **node.js**. Abaixo seguem os sites para realizar o download e efetuar a instalação:

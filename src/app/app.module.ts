@@ -17,6 +17,7 @@ import { ComicsModule } from '../components/comics/comics.module';
 import { SeriesModule } from '../components/series/series.module';
 import { CreatorsModule } from '../components/creators/creators.module';
 import { EventsModule } from '../components/events/events.module';
+import { DetailsModule } from '../components/details/details.module';
 
 registerLocaleData(pt);
 
@@ -36,7 +37,8 @@ registerLocaleData(pt);
     ComicsModule,
     SeriesModule,
     CreatorsModule,
-    EventsModule
+    EventsModule,
+    DetailsModule
   ],
   providers: [{ provide: NZ_I18N, useValue: pt_BR }],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
