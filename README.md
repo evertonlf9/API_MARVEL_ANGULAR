@@ -1,6 +1,6 @@
 # Projeto - api-Marvel-Angular
 
-Angular version 16.13.1
+Angular version 9.1.7
 
 Author:
 Everton Ferreira
