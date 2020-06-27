@@ -1,0 +1,12 @@
+@import '../assets/scss/variables';
+
+#app-component {
+    width: 100%;
+    height: 100%;
+
+    .app-container {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+    }
+}

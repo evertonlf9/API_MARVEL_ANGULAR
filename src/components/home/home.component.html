@@ -1,0 +1,17 @@
+<div id="home-component">
+    <nz-layout>
+        <nz-header class="ant-layout-header">
+            <app-menu [hide]="finishedVideo"></app-menu>
+        </nz-header>
+        <nz-content class="ant-layout-content">
+            <div class="container-spin" *ngIf="loading">
+                <nz-spin nzSimple [nzSize]="'large'" nzTip="Loading..."></nz-spin>
+            </div>
+            <audio id="audio-element" src='../../assets/sound/Avengers.mp3' loop autoPlay (loadedmetadata)="onLoadedDataAudio()"></audio>
+            <video id="video-element" src='../../assets/video/video.mp4' (loadedmetadata)="onLoadedData()" (timeupdate)="onTimeUpdate()" [muted]="true" (click)="handlerClickStart()"></video>
+        </nz-content>
+        <nz-footer class="ant-layout-footer">
+            &copy; 2020 by <a href="http://marvel.com/" target='_blank'>Marvel</a>
+        </nz-footer>
+    </nz-layout>
+</div>

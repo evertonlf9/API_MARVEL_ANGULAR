@@ -1,0 +1,67 @@
+<div id="list-component">
+
+    <div class="container-spin" *ngIf="loading">
+      <nz-spin nzTip="Loading..."></nz-spin>
+    </div>
+
+    <div class="ant-layout-content">
+      <div class="container">
+          <nz-input-group [nzSuffix]="suffixIconSearch">
+            <input type="text" nz-input placeholder="input search text"  class="input-search" [disabled]="loading" placeholder="Pesquisar..." maxLength="255" name="search" [(ngModel)]="name" (keypress)="handlerKeyPress($event)"/>
+          </nz-input-group>
+          <ng-template #suffixIconSearch>
+            <i nz-icon nzType="search"></i>
+          </ng-template>
+
+          <div class="btn-search" (click)="handlerClickSearch()" (keypress)="handlerKeyPressSearch($event)" tabIndex="0" aria-label="Pesquisar" role="button">
+            <i nz-icon nzType="search"></i>
+          </div>
+          <div class="btn-search" (click)="handlerClickClearSearch()" (keypress)="handlerKeyPressClearSearch($event)" tabIndex="0" aria-label="Limpar a pesquisa" role="button">
+            <i nz-icon nzType="delete"></i>
+          </div>
+      </div>
+    </div>
+
+    <div class="ant-layout-content" style="padding: 5px 50px;">
+      <div class="container">
+          <div class="container-cards" *ngIf="data && data.length > 0">
+              <div *ngFor="let item of data; let id = index">
+                <nz-card nzHoverable [nzTitle]="getTitleCard(item)" nz-tooltip [nzTooltipTitle]="getTitleCard(item)" [nzExtra]="extraTemplate" style="width:270px" [nzCover]="coverTemplate">
+                  <nz-card-meta [nzTitle]="" [nzDescription]="getDescription(item)" nz-tooltip [nzTooltipTitle]="getDescription(item)"></nz-card-meta>
+                </nz-card>
+                <ng-template #coverTemplate>
+                  <img alt="example" [src]="getImageCard(item)" />
+                </ng-template>
+                <ng-template #extraTemplate>
+                  <a (click)="handlerClickMore(item)" (keypress)="handlerKeyPressMore(item, $event)">Mais</a>
+                </ng-template>
+              </div>
+          </div>
+
+          <div *ngIf="data && data.length > 0">
+            <nz-pagination 
+            (nzPageSizeChange)="handleChangeSize($event)"
+            (nzPageIndexChange)="handleChangePagination($event)"
+            [nzPageIndex]="currenPage" 
+            [nzTotal]="total" 
+            [nzShowTotal]="rangeTemplate" 
+            nzShowSizeChanger ></nz-pagination>
+            <ng-template #rangeTemplate let-range="range" let-total> {{ range[0] }}-{{ range[1] }} of {{ total }} items </ng-template>
+          </div>
+
+          <nz-empty
+            *ngIf="data && data.length === 0"
+            nzNotFoundImage="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+            [nzNotFoundContent]="contentTpl"
+            [nzNotFoundFooter]="footerTpl"
+          >
+            <ng-template #contentTpl>
+              <span><a href="">Nenhum resultao encontrado</a></span>
+            </ng-template>
+            <ng-template #footerTpl>
+              <button nz-button nzType="primary" (click)="handlerClickClearSearch()" (keypress)="handlerKeyPressClearSearch($event)">Atualizar a pagina</button>
+            </ng-template>
+          </nz-empty>
+      </div>
+    </div>
+</div>

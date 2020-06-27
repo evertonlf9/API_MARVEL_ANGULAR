@@ -1,0 +1,77 @@
+<div id="menu-component">
+    
+    <ul nz-menu nzMode="horizontal" [nzTheme]="'dark'" >
+        <li nz-menu-item [nzSelected]="currentPage === '/'" (click)="handlerClickNextPage('/')" (keypress)="handlerKeyPressNextPage($event, '/')" tabindex="0">
+          <i nz-icon nzType="home" nzTheme="outline"></i>
+          Home
+        </li>
+
+        <li [nzDisabled]="!hide" nz-menu-item [nzSelected]="currentPage === '/characters'" (click)="handlerClickNextPage('/characters')" (keypress)="handlerKeyPressNextPage($event, '/characters')" tabindex="0">
+            <i nz-icon nzType="team" nzTheme="outline"></i>
+            Personagens
+        </li>
+
+        <li [nzDisabled]="!hide" nz-menu-item [nzSelected]="currentPage === '/comics'" (click)="handlerClickNextPage('/comics')" (keypress)="handlerKeyPressNextPage($event, '/comics')" tabindex="0">
+            <i nz-icon nzType="read" nzTheme="outline"></i>
+            Quadrinhos
+        </li>
+
+        <li [nzDisabled]="!hide" nz-menu-item [nzSelected]="currentPage === '/series'" (click)="handlerClickNextPage('/series')" (keypress)="handlerKeyPressNextPage($event, '/series')" tabindex="0">
+            <i nz-icon nzType="video-camera" nzTheme="outline"></i>
+            Séries
+        </li>
+
+        <li [nzDisabled]="!hide" nz-menu-item [nzSelected]="currentPage === '/creators'" (click)="handlerClickNextPage('/creators')" (keypress)="handlerKeyPressNextPage($event, '/creators')" tabindex="0">
+            <i nz-icon nzType="user" nzTheme="outline"></i>
+            Criadores
+        </li>
+
+        <li [nzDisabled]="!hide" nz-menu-item [nzSelected]="currentPage === '/events'" (click)="handlerClickNextPage('/events')" (keypress)="handlerKeyPressNextPage($event, '/events')" tabindex="0">
+            <i nz-icon nzType="calendar" nzTheme="outline"></i>
+            Eventos
+        </li>
+    </ul>
+
+    <ng-container class="dropdown-menu">
+        <button nz-button nz-dropdown [nzDropdownMenu]="menu" [nzPlacement]="'menu'">
+            <i nz-icon nzType="menu" nzTheme="outline"></i>
+        </button>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <ul nz-menu>
+            <li nz-menu-item [nzSelected]="currentPage === '/'" (click)="handlerClickNextPage('/')" (keypress)="handlerKeyPressNextPage($event, '/')" tabindex="0">
+                <i nz-icon nzType="home" nzTheme="outline"></i>
+                Home
+            </li>
+            <li [nzDisabled]="!hide" nz-menu-item [nzSelected]="currentPage === '/characters'" (click)="handlerClickNextPage('/characters')" (keypress)="handlerKeyPressNextPage($event, '/characters')" tabindex="0">
+                <i nz-icon nzType="team" nzTheme="outline"></i>
+                Personagens
+            </li>
+    
+            <li [nzDisabled]="!hide" nz-menu-item [nzSelected]="currentPage === '/comics'" (click)="handlerClickNextPage('/comics')" (keypress)="handlerKeyPressNextPage($event, '/comics')" tabindex="0">
+                <i nz-icon nzType="read" nzTheme="outline"></i>
+                Quadrinhos
+            </li>
+    
+            <li [nzDisabled]="!hide" nz-menu-item [nzSelected]="currentPage === '/series'" (click)="handlerClickNextPage('/series')" (keypress)="handlerKeyPressNextPage($event, '/series')" tabindex="0">
+                <i nz-icon nzType="video-camera" nzTheme="outline"></i>
+                Séries
+            </li>
+    
+            <li [nzDisabled]="!hide" nz-menu-item [nzSelected]="currentPage === '/creators'" (click)="handlerClickNextPage('/creators')" (keypress)="handlerKeyPressNextPage($event, '/creators')" tabindex="0">
+                <i nz-icon nzType="user" nzTheme="outline"></i>
+                Criadores
+            </li>
+    
+            <li [nzDisabled]="!hide" nz-menu-item [nzSelected]="currentPage === '/events'" (click)="handlerClickNextPage('/events')" (keypress)="handlerKeyPressNextPage($event, '/events')" tabindex="0">
+                <i nz-icon nzType="calendar" nzTheme="outline"></i>
+                Eventos
+            </li>
+          </ul>
+        </nz-dropdown-menu>
+    </ng-container>
+
+    <div class="container-logo">
+        <h2>Welcome to Marvel</h2>
+        <img src='../../assets/images/logo.png' class="logo" />
+    </div> 
+</div>

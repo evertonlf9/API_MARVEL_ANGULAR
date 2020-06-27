@@ -1,0 +1,83 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./assets/scss/variables";
+
+*, *::before, *::after {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: $primary-font;
+    font-size: 14px;
+    color: $font-color;
+    line-height: 1.5;
+    background: $white-color;
+    padding: 0;
+    margin: 0;
+}
+
+.ant-dropdown, .ant-layout-header, .ant-menu.ant-menu-dark, .ant-menu-dark .ant-menu-sub {
+    background-color: #292b2c!important;
+}
+
+.ant-menu-item {
+    color: #fff !important;
+    font-size: 16px;
+}
+
+.ant-layout-footer {
+    line-height: 0.8;
+    color: #fff;
+    background-color: #222;
+    text-align: center;
+    padding: 10px 50px;
+}
+
+.ant-layout-header {
+    padding: 0 3px !important;
+}
+
+.hide{display: none !important;}
+
+.not-found-result {
+    border: 1px solid $red;
+    padding: 20px 20px;
+    font-size: 18px;
+    color: $yellow;
+}
+
+.ant-pagination-total-text {
+    width: 100%;
+    text-align: center;
+}
+
+.ant-pagination-item, .ant-pagination-prev  {
+    margin-right: 0;
+}
+
+.container-spin {
+    position: absolute;
+    height: 100%;
+    background: #dad5d54a;
+    width: 100%;
+    z-index: 999;
+
+    .ant-spin {
+        font-size: 20px;
+        font-weight: 800;
+    }
+
+    .ant-spin-nested-loading {
+        top: 40%;
+    }
+}
+
+@media only screen and (max-width: 495px){
+    .ant-layout-content {padding: 5px 20px !important;}
+}
