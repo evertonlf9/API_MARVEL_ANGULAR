@@ -10,7 +10,8 @@ import {
   NzSpinModule,
   NzIconModule,
   NzButtonModule,
-  NzPaginationModule  
+  NzPaginationModule,
+  NzDescriptionsModule   
 } from 'ng-zorro-antd';
 
 @NgModule({
@@ -25,7 +26,8 @@ import {
     NzSpinModule,
     NzIconModule,
     NzButtonModule,
-    NzPaginationModule
+    NzPaginationModule,
+    NzDescriptionsModule
   ],
   exports: [
     NzEmptyModule,
@@ -38,7 +40,8 @@ import {
     NzSpinModule,
     NzIconModule,
     NzButtonModule,
-    NzPaginationModule
+    NzPaginationModule,
+    NzDescriptionsModule
   ],
   providers: []
 })

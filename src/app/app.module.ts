@@ -11,6 +11,8 @@ import { pt_BR } from 'ng-zorro-antd/i18n';
 import { registerLocaleData } from '@angular/common';
 import pt from '@angular/common/locales/pt';
 
+import { AntModule } from './app.antd.module';
+
 import { HomeModule } from '../components/home/home.module';
 import { CharactersModule } from '../components/characters/characters.module';
 import { ComicsModule } from '../components/comics/comics.module';

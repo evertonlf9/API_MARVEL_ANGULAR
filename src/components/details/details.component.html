@@ -3,9 +3,90 @@
         <nz-header class="ant-layout-header">
             <app-menu></app-menu>
         </nz-header>
-        <nz-content>    
-            <h1 style="text-align: center;">Em Contrução!</h1>
-        </nz-content>
+        <div class="container-layout-content">
+            <nz-content>            
+                <div class="container">
+
+                    <div class="container-spin" *ngIf="loading">
+                        <nz-spin nzTip="Loading..."></nz-spin>
+                    </div>
+
+                    <nz-card nzHoverable [nzTitle]="getTitleCard()" nz-tooltip [nzTooltipTitle]="getTitleCard()" [nzCover]="imgTemplate"></nz-card>                    
+                    <ng-template #imgTemplate>
+                        <img alt="example" [src]="getImageCard()" />
+                    </ng-template>
+                    <div class="container-description">
+                        <nz-descriptions nzTitle="Mais informações" nzBordered nzLayout="vertical" [nzColumn]="{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }">
+                            <nz-descriptions-item nzTitle="Descrição">{{data.description}}</nz-descriptions-item>
+                        </nz-descriptions>
+
+                        <nz-descriptions nzBordered nzLayout="vertical" [nzColumn]="{ xxl: 4, xl: 3, lg: 3, md: 3, sm: 2, xs: 1 }">                  
+
+                            <nz-descriptions-item nzTitle="Personagens" *ngIf="(data.characters && data.characters.items && data.characters.items.length > 0)">
+                                <div *ngFor="let characters of data.characters.items; let id = index">
+                                    <a (click)="handlerClick(characters)" [title]="characters.name" tabIndex="0">{{characters.name}}</a>
+                                    <br/>
+                                </div>
+                            </nz-descriptions-item>
+
+                            <nz-descriptions-item nzTitle="Criadores" *ngIf="(data.creators && data.creators.items && data.creators.items.length > 0)">
+                                <div *ngFor="let creators of data.creators.items; let id = index">
+                                    <a (click)="handlerClick(creators)" [title]="creators.name" tabIndex="0">{{creators.name}}</a>
+                                    <br/>
+                                </div>
+                            </nz-descriptions-item>
+
+                            <nz-descriptions-item nzTitle="Histórias em quadrinhos" *ngIf="(data.comics && data.comics.items && data.comics.items.length > 0)">
+                                <div *ngFor="let comics of data.comics.items; let id = index">
+                                    <a (click)="handlerClick(comics)" [title]="comics.name" tabIndex="0">{{comics.name}}</a>
+                                    <br/>
+                                </div>
+                            </nz-descriptions-item>
+
+                            <nz-descriptions-item nzTitle="Series" *ngIf="(data.series && data.series.items && data.series.items.length > 0)">
+                                <div *ngFor="let series of data.series.items; let id = index">
+                                    <a (click)="handlerClick(series)" [title]="series.name" tabIndex="0">{{series.name}}</a>
+                                    <br/>
+                                </div>
+                            </nz-descriptions-item>
+
+                            <nz-descriptions-item nzTitle="Histórias" *ngIf="(data.stories && data.stories.items && data.stories.items.length > 0)">
+                                <div *ngFor="let stories of data.stories.items; let id = index">
+                                    <a (click)="handlerClick(stories)" [title]="stories.name" tabIndex="0">{{stories.name}}</a>
+                                    <br/>
+                                </div>
+                            </nz-descriptions-item>
+
+                            <nz-descriptions-item nzTitle="Eventos" *ngIf="(data.events && data.events.items && data.events.items.length > 0)">
+                                <div *ngFor="let events of data.events.items; let id = index">
+                                    <a (click)="handlerClick(events)" [title]="events.name" tabIndex="0">{{events.name}}</a>
+                                    <br/>
+                                </div>
+                            </nz-descriptions-item>
+                            
+
+                        </nz-descriptions>
+                    </div>
+                    
+                    <div nz-row>
+                        <div nz-col [nzSpan]="24" style="text-align: center;">
+                            <img src="../../assets/images/marvel.jpg" style="max-width: 350px"/>
+                        </div>
+                    </div>
+
+                    <nz-empty
+                        *ngIf="data && data.length === 0"
+                        nzNotFoundImage="https://gw.alipayobjects.com/zos/antfincdn/ZHrcdLPrvN/empty.svg"
+                        [nzNotFoundContent]="contentTpl"
+                    >
+                        <ng-template #contentTpl>
+                            <span><a href="">Nenhum resultao encontrado</a></span>
+                        </ng-template>
+                    </nz-empty>
+
+                </div>            
+            </nz-content>
+        </div>
         <nz-footer class="ant-layout-footer">
             &copy; 2020 by <a href="http://marvel.com/" target='_blank'>Marvel</a>
         </nz-footer>
